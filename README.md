@@ -1,1 +1,1 @@
-# programming-for-linguists
+# Programming for linguists

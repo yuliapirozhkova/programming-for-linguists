@@ -5,6 +5,6 @@ Students are expected to have minimal experience in programming.
 
 This course covers many different topics. All topics are split into N groups: Data structure
 
-##Data Structure
+## Data Structure
 1. [Stack](data_structures/stack/README.md) is one of the simplest, and most basic data structures in computer science.
 

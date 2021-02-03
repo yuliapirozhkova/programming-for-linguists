@@ -8,3 +8,5 @@ This course covers many different topics. All topics are split into N groups: Da
 ## Data Structure
 1. [Stack](data_structures/stack/README.md) is one of the simplest, and most basic data structures in computer science.
 
+## P.S.
+1. [How to setup environment](./DEVELOPER.md)

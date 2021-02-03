@@ -4,7 +4,7 @@ Programming for linguists
 Implementation of the data structure "Queue"
 """
 
-from typing import Iterable
+from typing import Iterable, Optional
 
 
 # pylint: disable=invalid-name
@@ -13,7 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size: int = None):
+    def __init__(self, data: Iterable = (), max_size: Optional[int] = None):
         pass
 
     def put(self, element):
@@ -42,12 +42,6 @@ class Queue_:
         """
 
     def size(self) -> int:
-        """
-        Return the number of elements in queue_
-        :return: Number of elements in queue_
-        """
-
-    def top(self):
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_

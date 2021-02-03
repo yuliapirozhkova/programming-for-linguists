@@ -3,7 +3,7 @@
 The Stack is one of the simplest, and yet most basic data structures in computer science.
 This data structure is often used at both software and hardware levels. There are many variations and complications of the Stack. Let's start with the simplest one.
 
-A stack is an ordered collection of data elements, organized according to the LIFO (Last In First Out) principle. 
+A stack is an ordered collection of data elements, organized according to the FILO (First In Last Out) principle. 
 The most common abstraction for representing the stack is a stack of plates. You can take or put a plate only from the top of the stack. 
 If you try to get access to a plate in the middle of the stack then smash all plates.
 
@@ -24,7 +24,7 @@ For us, as programmers, it is very important to understand that we not only have
     
     ![](./docs/images/empty_stack_first_plate.png)
     
-    Our table (the Stack) is not enty already. It contains one element - one plate.
+    Our table (the Stack) is not empty already. It contains one element - one plate.
     Usually the operation of adding an element to the stack named "PUSH".
     
     We can do this operation again and again. But it is not so easy... The stack can overflow sometimes.
@@ -34,7 +34,6 @@ For us, as programmers, it is very important to understand that we not only have
 2. ### Get element from Stack (POP)
     The opposite operation for push is POP - get an item from the stack. But there are restrictions on this operation too. 
     Of course, you cannot get an item from an empty stack. And you can only get an item on top of the stack. It's just like a real stack of plates.
-    There is one more restriction with data structure Stack than 
     
     ![](./docs/images/stack_pop.png)
 

@@ -40,7 +40,7 @@ For us, as programmers, it is very important to understand that we not only have
 
     The Stack data structure has a limitation as opposed to a stack of plates. You cannot get more than one item from the stack at a time.
 
-3. Look at the element on the top of Stack (TOP)
+3. ### Look at the element on the top of Stack (TOP)
     There are cases when you need to see only the plate on the top. For example, you need to see the number printed on the bottom of the plate.
     You don't need to get the plate from the stack, just see to the bottom:
     
@@ -50,7 +50,7 @@ For us, as programmers, it is very important to understand that we not only have
 
     This method doesn't get out an element from the Stack. You can just look into the element on the top.
 
-4. How many element in the Stack (SIZE)
+4. ### How many element in the Stack (SIZE) 
     And the latest operation with stack - you can just get number of elements in the stack.
     For this operation you need to call the method "size":
     ![](./docs/images/stack_size.png)

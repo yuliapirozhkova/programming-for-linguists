@@ -12,7 +12,7 @@ The next steps:
 1. [Create a new virtual python environment](#new-venv) 
 2. [Create the PyCharm configuration](#pycharm-config) 
 
-## <a name="newvenv"></a>Create a new virtual python environment
+## <a name="new-venv"></a>Create a new virtual python environment
 
 It is highly recommended to use a virtual environment to work with this project.
 

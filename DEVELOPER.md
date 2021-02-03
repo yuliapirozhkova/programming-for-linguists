@@ -9,11 +9,10 @@ This project was developed and tested using [python3.9.1](https://www.python.org
 After downloading the installer, run the installation using default parameters.
 
 The next steps:
-1. [Create a new virtual python environment]() 
-2. [Create the PyCharm configuration]() 
+1. [Create a new virtual python environment](#new-venv) 
+2. [Create the PyCharm configuration](#pycharm-config) 
 
-
-## Create a new virtual python environment
+## <a name="newvenv"></a>Create a new virtual python environment
 
 It is highly recommended to use a virtual environment to work with this project.
 
@@ -35,4 +34,4 @@ It is highly recommended to use a virtual environment to work with this project.
         <project_root>\venv\Scripts\activate.bat
    ```
      
-## Create the PyCharm configuration
+## <a name="pycharm-config"></a>Create the PyCharm configuration

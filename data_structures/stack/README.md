@@ -10,74 +10,47 @@ If you try to get access to a plate in the middle of the stack then smash all pl
 Let's try to understand this data structure using pictorial images and examples. 
 As usual for any data structure, this will be done by parsing the stack methods
 
-## Examples
-
-
-
-## Пример.
-Let's look at a stack using an example of a stack of plates. At the initial moment of time, the stack will be empty.
-Just a table:
+## Operations with Stack
+Let's look at a stack using an example of a stack of plates. At the initial moment of time, the stack will be empty (contains no plates).
+Just an empty table:
 
 ![](./docs/images/empty_stack_plates.png)
 
-1. Adding an element to the stack (one plate).
+For us, as programmers, it is very important to understand that we not only have nothing, but we have a container (table) that we can fill. 
 
+1. ### Add a New Element (PUSH)
 
-![](./docs/images/empty_stack_first_plate.png)
-
-Usually this operation for the stack named "PUSH"
-
-
-
-Доступ к элементам стека может осуществляться только сверху.
+    So, of course we can add a plate to this empty Stack:
     
-    вершина стека (забирать и класть элементы можно только с этой стороны)
-    | |
-    | |
-    |-|
-
-После помещения в стек первого шарика он окажется на дне и на вершине стека одновременно.
-
+    ![](./docs/images/empty_stack_first_plate.png)
     
-    | |
-    |0| <- вершина стека (top)
-    |-|
+    Our table (the Stack) is not enty already. It contains one element - one plate.
+    Usually the operation of adding an element to the stack named "PUSH".
     
-Поместим в стек второй шарик, он окажется на вершине стека:
-
-    | |
-    |0| <- вершина стека (top), элемент, к которому есть доступ 
-    |0| <- прямого доступа к этому элементу мы больше не имеем.
-    |-|
+    We can do this operation again and again. But it is not so easy... The stack can overflow sometimes.
     
-Теперь мы можем посмотреть и узнать значение только одного элемента стека, лежащего на его вершине. 
+    ![](./docs/images/stack_overflow.png)
 
-При удалении элемента из стека, на вершину стека помещается объект, который был помещён в стек перед удалённым.
-
-    |^|
-    |||
-    |0| <- убираем этот элемент из стека
-    |0| <- прямого доступа к этому элементу мы больше не имеем.
-    |-|
+2. ### Get element from Stack (POP)
+    The opposite operation for push is POP - get an item from the stack. But there are restrictions on this operation too. 
+    Of course, you cannot get an item from an empty stack. And you can only get an item on top of the stack. It's just like a real stack of plates.
+    There is one more restriction with data structure Stack than 
     
-    | |
-    |0| <- этот элемент становится вершиной стека (top)
-    |-|
+    ![](./docs/images/stack_pop.png)
+
+    The Stack data structure has a limitation as opposed to a stack of plates. You cannot get more than one item from the stack at a time.
+
+3. Look at the element on the top of Stack (TOP)
+    There are cases when you need to see only the plate on the top. For example, you need to see the number printed on the bottom of the plate.
+    You don't need to get the plate from the stack, just see to the bottom:
     
-## Стандартные функции Стека
+    For this the stack must contain a method named TOP: 
+    
+    ![](./docs/images/stack_pop.png)
 
-### Добаление элемента (Push)
-Для добавления элемента в стек используется функция push, которая принимает новый аргумент в качестве параметра.
-Принимаемый аргумент помещается на вершину стека.
+    This method doesn't get out an element from the Stack. You can just look into the element on the top.
 
-### Удаление элемента (Pop)  
-Для удаления элемента из стека используется функция pop.
-
-### Взятие верхнего элемента (Top)
-Для взятия элемента с вершины стека используется функция top.
-  
-### Взятие размера стека (Size)  
-Для взятия количества элементов в стеке используется функция size.
-
-### Проверка на пустоту (Empty)
-Для проверки стека на пустоту используется функция empty.
+4. How many element in the Stack (SIZE)
+    And the latest operation with stack - you can just get number of elements in the stack.
+    For this operation you need to call the method "size":
+    ![](./docs/images/stack_size.png)

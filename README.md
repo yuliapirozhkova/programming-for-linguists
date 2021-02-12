@@ -1,13 +1,16 @@
-# Programming for linguists
+# Программирование для лингвистов
 
-This repository contains materials for a programming course aimed at students of 2–3 years of study, not in software development areas.
-Students are expected to have minimal experience in programming.
+Репозиторий содержит материалы для курса программирования для студентов лингвистического направления 2-3 курса обучения.
+Ожидается, что студенты уже имеют минимальный опыт программирования.
 
-This course covers many different topics. All topics are split into N groups: Data structure
+В курсе упор делается на развитие навыков написания программ для решения несложных алгоритмических задач и ознакомление 
+студентов с основными и наиболее часто используемыми структурами данных, а так же их применение.
 
-## Data Structure
-1. [Stack](data_structures/stack/README.md) is one of the simplest, and most basic data structures in computer science.
-1. [Queue](data_structures/queue_/README.md) is one of the simplest, and most basic data structures in computer science too.
+В репозитории вы можете найти заготовки для лабораторных работ по следующим темам:
 
-## P.S.
-1. [How to setup environment](./DEVELOPER.md)
+## Структуры данных
+1. [Стек](data_structures/stack/README.md) - одна из простейших и в тоже время основных структур данных в программировании.
+1. [Очередь](data_structures/queue_/README.md) - на ряду со стеком, одна из простейших структур данных
+
+## Вспомогательная документация по репозиторию
+1. [Инструкция по настройке рабочего окружения для работы с репозиторием](./DEVELOPER.md)

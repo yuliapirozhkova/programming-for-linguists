@@ -1,37 +1,36 @@
-# How to setup an environment for this repository
+# Настройка окружения для работы с репозиторием 
 
-## Install Python interpreter to your system
+## Установка интерпретатора Python
 
-To successfully develop on this repository you need to install Python to yor machine.
-You should download python installer from [the official site](https://www.python.org/downloads/).
-This project was developed and tested using [python3.9.1](https://www.python.org/downloads/release/python-391/)  
+Для работы с репозиторием необходимо установить интерпретатор Python. 
+Вам необходимо скачать установочный пакет python с [официального сайта](https://www.python.org/downloads/).
+Этот репозиторий разрабатывается и тестируется с использованием [python3.9.1](https://www.python.org/downloads/release/python-391/)  
 
-After downloading the installer, run the installation using default parameters.
+После того. как Вы скачали установочный пакет, установите python используя настройки поумолчанию.
 
-The next steps:
-1. [Create a new virtual python environment](#new-venv) 
-2. [Create the PyCharm configuration](#pycharm-config) 
+Следующие шаги:
+1. [Создание виртуального окружения Python](#new-venv) 
+2. [Создание конфигурации запуска в среде разработки PyCharm](#pycharm-config) 
 
-## <a name="new-venv"></a>Create a new virtual python environment
+## <a name="new-venv"></a>Создание виртуального окружения Python
 
-It is highly recommended to use a virtual environment to work with this project.
+Рекомендуется использовать виртуальное окружение для работы с этим репозиторием.
 
-1. To create the virtual environment you have to install the python `virtualenv` package.
-    Open a terminal (command prompt) in the project directory and run the following command:
+1. Для создания виртуального окружения необходимо установить пакет `virtualenv`.
+    Для этого откройте терминал в родительской директории проекта и запустите следующую команду:
     ```shell script
         python -m pip install virtualenv
     ```
 
-2. Create the python virtual environment on the project folder:
+2. Затем создайте виртуальное окружение Python в родительской директории проекта используя следующую коменду:
    ```shell script
         python -m virtualenv venv
    ```
-   The pyrhon virtual environment will be created on the `<project_root>\venv` folder.
-   There is The Python executor in the `<project_root>\venv\bin` folder.
+   Виртуальное окружение Python будет создано в папке `<project_root>\venv`.
+   Python интерпретатор находится в `<project_root>\venv\bin` папке.
 
-3. To activate the python virtual environment run the following command:
+3. Чтобы активировать виртуальное окружение выполните следующую команду:
    ```shell script
         <project_root>\venv\Scripts\activate.bat
    ```
-     
-## <a name="pycharm-config"></a>Create the PyCharm configuration
+>>Важно: Необходимо лишь раз создать виртуальное окружение, но при открытии нового терминала необходимо каждый раз активировать окружение

@@ -24,14 +24,14 @@
 
 2. Затем создайте виртуальное окружение Python в родительской директории проекта используя следующую коменду:
    ```shell script
-        python -m virtualenv venv
+        python -m virtualenv .venv
    ```
    Виртуальное окружение Python будет создано в папке `<project_root>\venv`.
    Python интерпретатор находится в `<project_root>\venv\bin` папке.
 
 3. Чтобы активировать виртуальное окружение выполните следующую команду:
    ```shell script
-        <project_root>\venv\Scripts\activate.bat
+        <project_root>\.venv\Scripts\activate.bat
    ```
 >>Важно: Необходимо лишь раз создать виртуальное окружение, но при открытии нового терминала необходимо каждый раз активировать окружение
 

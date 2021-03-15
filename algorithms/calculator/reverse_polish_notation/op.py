@@ -1,9 +1,18 @@
+"""
+Programming for linguists
+
+Interfaces and classes for Operators
+"""
 from typing import Type
 
+from algorithms.calculator.reverse_polish_notation.digit import Digit
 from algorithms.calculator.reverse_polish_notation.element import Element
 
 
 class OpFactory:
+    """
+    Class to provide functionality for creating concrete instance of Op
+    """
     _registry = {}
 
     @staticmethod
@@ -13,7 +22,7 @@ class OpFactory:
         OpFactory._registry[cls.symbol] = cls
 
     @staticmethod
-    def get_op_by_symbol(op_symbol: str) -> Type['Op']:
+    def get_op_by_symbol(op_symbol: str) -> 'Op':
         return OpFactory._registry[op_symbol]()
 
 
@@ -29,5 +38,15 @@ class Op(Element, metaclass=OpMeta):
     symbol = None
 
     @staticmethod
-    def function(*args, **kwargs) -> float:
+    def _function(*args, **kwargs) -> float:
         raise NotImplementedError
+
+    def __call__(self, *args, **kwargs) -> Digit:
+        res = self._function(*args, **kwargs)
+        return Digit(res)
+
+    def __str__(self):
+        return self.symbol
+
+    def is_more_prioritized_than(self, other: 'Op') -> bool:
+        return self.priority > other.priority

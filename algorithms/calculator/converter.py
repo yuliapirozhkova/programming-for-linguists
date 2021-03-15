@@ -3,7 +3,10 @@ Programming for linguists
 
 Implementation of the Reverse Polish Notation Converter
 """
+from typing import Type
+
 from algorithms.calculator.reverse_polish_notation import BinaryOp, Digit, OpFactory, Op, ReversePolishNotation
+from algorithms.calculator.reverse_polish_notation.bracket import Bracket, CloseBracket, OpenBracket
 from data_structures.queue_.queue_ import Queue_
 from data_structures.stack.stack import Stack
 
@@ -22,24 +25,25 @@ class ReversePolishNotationConverter:
     def convert(self) -> ReversePolishNotation:
         """
         Main method of the class.
-        Convert infix the expression to reverse polish notation
+        Convert an infix expression to reverse polish notation
 
         :return: ReversePolishNotation object
         """
         while not self._infix_notation.empty():
             character = self._infix_notation.get()
+
             if self.is_part_of_digit(character):
                 digit = self.read_digit(character)
                 self._postfix_notation.put(digit)
                 continue
-            elif self.is_opening_bracket(character):
-                self.stack.push(character)
-                continue
-            elif self.is_closing_bracket(character):
-                self.pop_from_stack_until_opening_bracket()
-                continue
 
             operator = OpFactory.get_op_by_symbol(character)
+            if self.is_opening_bracket(operator):
+                self.stack.push(operator)
+                continue
+            if self.is_closing_bracket(operator):
+                self.pop_from_stack_until_opening_bracket()
+                continue
             if self.is_binary_operation(operator):
                 self.pop_from_stack_until_prioritizing(operator)
             else:
@@ -51,15 +55,17 @@ class ReversePolishNotationConverter:
 
     def pop_from_stack_until_opening_bracket(self):
         while not self.is_opening_bracket(self.stack.top()):
-            self._postfix_notation.put_operator(self.stack.top())
+            self._postfix_notation.put(self.stack.top())
             self.stack.pop()
         self.stack.pop()
 
-    def pop_from_stack_until_prioritizing(self, operator: Op):
-        current_priority = operator.priority
-        while not self.stack.empty() and self.stack.top().priority > current_priority:
+    def pop_from_stack_until_prioritizing(self, operator: Type[Op]):
+        while (not self.stack.empty() and
+               self.is_binary_operation(self.stack.top()) and
+               self.stack.top().is_more_prioritized_than(operator)):
             self._postfix_notation.put(self.stack.top())
             self.stack.pop()
+
         self.stack.push(operator)
 
     def read_digit(self, character: str):
@@ -73,17 +79,13 @@ class ReversePolishNotationConverter:
         return character.isdigit() or character == ReversePolishNotationConverter.point
 
     @staticmethod
-    def is_opening_bracket(character: str) -> bool:
-        if character == '(':
-            return True
-        return False
+    def is_opening_bracket(operator: Type[Op]) -> bool:
+        return isinstance(operator, OpenBracket)
 
     @staticmethod
-    def is_closing_bracket(character: str) -> bool:
-        if character == ')':
-            return True
-        return False
+    def is_closing_bracket(operator: Type[Op]) -> bool:
+        return isinstance(operator, CloseBracket)
 
     @staticmethod
-    def is_binary_operation(operator: Op) -> bool:
+    def is_binary_operation(operator: Type[Op]) -> bool:
         return isinstance(operator, BinaryOp)

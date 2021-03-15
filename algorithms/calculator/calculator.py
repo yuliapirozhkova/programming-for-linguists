@@ -3,7 +3,7 @@ Programming for linguists
 
 Implementation of the Reverse Polish Notation Converter
 """
-from algorithms.calculator.reverse_polish_notation import Op, ReversePolishNotation
+from algorithms.calculator.reverse_polish_notation import Op, ReversePolishNotation, Digit
 from data_structures.stack.stack import Stack
 
 
@@ -28,11 +28,11 @@ class ReversePolishNotationCalculator:
                 self.stack.push(res)
             else:
                 self.stack.push(element)
-        return self.stack.top()
+        return self.stack.top().digit
 
-    def calculate_value(self, operator: Op):
+    def calculate_value(self, operator: Op) -> Digit:
         first = self.stack.top()
         self.stack.pop()
         second = self.stack.top()
         self.stack.pop()
-        return operator.function(first, second)
+        return operator(first, second)

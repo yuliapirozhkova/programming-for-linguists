@@ -10,3 +10,7 @@ dmypy.json
 
 # Idea
 .idea
+
+# venv
+venv
+.venv

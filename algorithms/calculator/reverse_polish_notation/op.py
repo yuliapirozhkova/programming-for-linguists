@@ -23,7 +23,10 @@ class OpFactory:
 
     @staticmethod
     def get_op_by_symbol(op_symbol: str) -> 'Op':
-        return OpFactory._registry[op_symbol]()
+        try:
+            return OpFactory._registry[op_symbol]()
+        except KeyError as e:
+            raise AssertionError(f'Unsupported operator {e}')
 
 
 class OpMeta(type):
@@ -34,19 +37,29 @@ class OpMeta(type):
 
 
 class Op(Element, metaclass=OpMeta):
+    """
+    Base class for Operators
+    """
     priority = None
     symbol = None
 
     @staticmethod
     def _function(*args, **kwargs) -> float:
+        """
+        Functions to calculate the operation.
+        Arguments depends on the specific operator.
+        """
         raise NotImplementedError
 
     def __call__(self, *args, **kwargs) -> Digit:
+        """
+        Public method to call operator.
+        Makes instances of the Op class callable:
+        op = Op();
+        result = op(Digit1, Digit2)
+        """
         res = self._function(*args, **kwargs)
         return Digit(res)
 
-    def __str__(self):
-        return self.symbol
-
-    def is_more_prioritized_than(self, other: 'Op') -> bool:
+    def __gt__(self, other: 'Op') -> bool:
         return self.priority > other.priority

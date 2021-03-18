@@ -3,7 +3,6 @@ Programming for linguists
 
 Class for Reverse Polish Notation
 """
-from copy import copy
 
 from algorithms.calculator.reverse_polish_notation.element import Element
 from data_structures.queue_.queue_ import Queue_
@@ -38,10 +37,3 @@ class ReversePolishNotation:
         if self._expression_queue.empty():
             raise StopIteration
         return self._expression_queue.get()
-
-    def __repr__(self):
-        string = ''
-        queue = copy(self._expression_queue)
-        while not queue.empty():
-            string += str(queue.get())
-        return string

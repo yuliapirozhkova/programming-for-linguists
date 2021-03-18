@@ -56,8 +56,8 @@ class Queue_:
 
     def top(self):
         """
-        Return the number of elements in queue_
-        :return: Number of elements in queue_
+        Return the first element in queue_
+        :return: Item from queue_
         """
         return self.data[-1]
 

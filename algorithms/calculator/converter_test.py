@@ -1,33 +1,35 @@
-# @unittest.skip
 import unittest
+from typing import Iterable
+
+from parameterized import parameterized
 
 from algorithms.calculator.converter import ReversePolishNotationConverter
-from algorithms.calculator.reverse_polish_notation import OpenBracket, CloseBracket
+from algorithms.calculator.reverse_polish_notation import ReversePolishNotation, Digit
 
 
 class ConverterTestCase(unittest.TestCase):
-    def test_read_simple_digit(self):
-        rpn = ReversePolishNotationConverter.convert('.234')
-        print(rpn)
-        expected_result = 1.234
-        self.assertEqual(digit.digit, expected_result)
+    @staticmethod
+    def fill_rpn_with_data(rpn: ReversePolishNotation, data: Iterable):
+        for element in data:
+            rpn.put(element)
 
-    def test_read_digit_without_integer(self):
-        rpn_converter = ReversePolishNotationConverter('234')
-        digit = rpn_converter.read_digit('.')
-        expected_result = 0.234
-        self.assertEqual(digit.digit, expected_result)
+    def assert_rpn_equal(self, first: ReversePolishNotation, second: ReversePolishNotation):
+        for actual_element in first:
+            expected_element = next(second)
+            self.assertEqual(actual_element, expected_element)
 
-    def test_read_digit_without_fractional(self):
-        rpn_converter = ReversePolishNotationConverter('.')
-        digit = rpn_converter.read_digit('1')
-        expected_result = 1.0
-        self.assertEqual(digit.digit, expected_result)
+    @parameterized.expand([
+        ['234', 234],
+        ['.234', 0.234],
+        ['1.', 1],
+        ['1.4', 1.4],
+    ])
+    def test_digit(self, actual: str, expected_digit: float):
+        actual_rpn = ReversePolishNotationConverter.convert(actual)
+        expected_rpn = ReversePolishNotation()
+        self.fill_rpn_with_data(expected_rpn, [Digit(expected_digit)])
+        self.assert_rpn_equal(actual_rpn, expected_rpn)
 
-    def test_open_bracket_checker(self):
-        rpn_converter = ReversePolishNotationConverter('.')
-        open_bracket_operator = OpenBracket()
-        self.assertTrue(rpn_converter.is_open_bracket(open_bracket_operator))
-        close_bracket_operator = CloseBracket()
-        self.assertFalse(rpn_converter.is_open_bracket(close_bracket_operator))
-
+    def test_raise_error_for_open_bracket(self):
+        ReversePolishNotationConverter.convert(')')
+        # self.assertRaises(KeyError, ReversePolishNotationConverter.convert, '(')

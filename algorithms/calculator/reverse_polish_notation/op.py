@@ -63,3 +63,6 @@ class Op(Element, metaclass=OpMeta):
 
     def __gt__(self, other: 'Op') -> bool:
         return self.priority > other.priority
+
+    def __eq__(self, other: 'Op') -> bool:
+        return self.symbol == other.symbol

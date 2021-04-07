@@ -21,3 +21,6 @@ class Digit(Element):
         Magic method to present class as string
         """
         return str(self.digit)
+
+    def __eq__(self, other: 'Digit') -> bool:
+        return self.digit == other.digit

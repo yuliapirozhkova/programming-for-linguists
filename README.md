@@ -16,5 +16,13 @@
 1. [Калькулятор](./algorithms/calculator/README.md) - калькулятор, построенный на Стеке и Очереди
 
 
+## Дополнительные материалы
+1. [Курс Программирование на Python](https://stepik.org/course/67/promo)
+2. [Курс Адаптивный тренажер Python](https://stepik.org/course/431/promo)
+3. [A Byte of Python](https://wombat.org.ua/AByteOfPython/AByteofPythonRussian-2.02.pdf)
+4. [Learning Python, 5th Edition by Mark Lutz](https://www.amazon.com/Learning-Python-5th-Mark-Lutz/dp/1449355730)
+4. [Telegram channel - Python etc](https://t.me/pythonetc)
+
 ## Вспомогательная документация по репозиторию
 1. [Инструкция по настройке рабочего окружения для работы с репозиторием](./docs/setup_env.md)
+

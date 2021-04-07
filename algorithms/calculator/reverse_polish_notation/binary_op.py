@@ -47,8 +47,8 @@ class Plus(BinaryOp):
     symbol = '+'
 
     @staticmethod
-    def _function(first: float, second: float) -> float:
-        return first + second
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element + second_element
 
 
 class Minus(BinaryOp):
@@ -59,8 +59,8 @@ class Minus(BinaryOp):
     symbol = '-'
 
     @staticmethod
-    def _function(first: float, second: float) -> float:
-        return first - second
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element - second_element
 
 
 class Multiplier(BinaryOp):
@@ -71,8 +71,8 @@ class Multiplier(BinaryOp):
     symbol = '*'
 
     @staticmethod
-    def _function(first: float, second: float) -> float:
-        return first * second
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element * second_element
 
 
 class Divider(BinaryOp):
@@ -83,8 +83,8 @@ class Divider(BinaryOp):
     symbol = '/'
 
     @staticmethod
-    def _function(first: float, second: float) -> float:
-        return first / second
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element / second_element
 
 
 class Power(BinaryOp):
@@ -95,5 +95,5 @@ class Power(BinaryOp):
     symbol = '^'
 
     @staticmethod
-    def _function(first: float, second: float) -> float:
-        return first ** second
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element ** second_element

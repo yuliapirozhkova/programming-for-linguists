@@ -16,22 +16,39 @@ class OpFactory:
     _registry = {}
 
     @staticmethod
-    def add_op_class(cls: Type['Op']):
-        if not cls.symbol:
+    def add_op_class(op_class: Type['Op']):
+        """
+        Function to add a new Operator class to registry
+        :param op_class: class of Operator
+        """
+        if not op_class.symbol:
             return
-        OpFactory._registry[cls.symbol] = cls
+        OpFactory._registry[op_class.symbol] = op_class
 
     @staticmethod
     def get_op_by_symbol(op_symbol: str) -> 'Op':
+        """
+        Function to get Operator class by symbol
+        :param op_symbol: symbol of the operator to return
+        :return: class of Operator
+        """
         try:
             return OpFactory._registry[op_symbol]()
-        except KeyError as e:
-            raise AssertionError(f'Unsupported operator {e}')
+        except KeyError as error:
+            raise AssertionError from error
 
 
 class OpMeta(type):
-    def __new__(mcs, *args, **kwargs):
-        op_class = super().__new__(mcs, *args, **kwargs)
+    """
+    Metaclass for all Operators
+    """
+    def __new__(cls, *args, **kwargs):
+        """
+        Method to create a Operator class
+        :param args:
+        :param kwargs:
+        """
+        op_class: Type[Op] = super().__new__(cls, *args, **kwargs)
         OpFactory.add_op_class(op_class)
         return op_class
 

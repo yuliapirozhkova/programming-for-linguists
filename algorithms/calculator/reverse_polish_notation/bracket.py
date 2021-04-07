@@ -10,7 +10,6 @@ class Bracket(Op):
     """
     Base interface for brackets
     """
-    pass
 
 
 class OpenBracket(Bracket):

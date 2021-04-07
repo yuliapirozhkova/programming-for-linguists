@@ -1,3 +1,8 @@
+"""
+Programming for linguists
+
+Tests for Binary operators
+"""
 import unittest
 
 from algorithms.calculator.reverse_polish_notation import Digit
@@ -6,7 +11,13 @@ from algorithms.calculator.reverse_polish_notation.binary_op import Plus, Minus,
 
 # @unittest.skip
 class BinaryOpImplementationTestCase(unittest.TestCase):
+    """
+    Test cases for Binary operators
+    """
     def test_plus(self):
+        """
+        Test case to check Plus operator
+        """
         argument_1 = Digit(1)
         argument_2 = Digit(2)
         operator = Plus()
@@ -15,6 +26,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(operator(argument_2, argument_1).digit, argument_1.digit + argument_2.digit)
 
     def test_minus(self):
+        """
+        Test case to check Minus operator
+        """
         argument_1 = Digit(1)
         argument_2 = Digit(2)
         operator = Minus()
@@ -24,6 +38,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(operator(argument_2, argument_1).digit, argument_2.digit - argument_1.digit)
 
     def test_multiple(self):
+        """
+        Test case to check Multiplier operator
+        """
         argument_1 = Digit(3)
         argument_2 = Digit(2)
         operator = Multiplier()
@@ -32,6 +49,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(operator(argument_1, argument_2).digit, argument_1.digit * argument_2.digit)
 
     def test_division(self):
+        """
+        Test case to check Divider operator
+        """
         argument_1 = Digit(4)
         argument_2 = Digit(2)
         operator = Divider()
@@ -41,6 +61,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(operator(argument_2, argument_1).digit, argument_2.digit / argument_1.digit)
 
     def test_power(self):
+        """
+        Test case to check Power operator
+        """
         argument_1 = Digit(3)
         argument_2 = Digit(2)
         operator = Power()
@@ -49,6 +72,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(operator(argument_2, argument_1).digit, argument_2.digit ** argument_1.digit)
 
     def test_divider_multiplier_feature(self):
+        """
+        Test case to check Divider and Multiplier feature
+        """
         argument_1 = Digit(4)
         argument_2 = Digit(2)
         divider = Divider()
@@ -58,6 +84,9 @@ class BinaryOpImplementationTestCase(unittest.TestCase):
         self.assertEqual(multiplier(division_result, argument_2).digit, argument_1.digit)
 
     def test_plus_minus_feature(self):
+        """
+        Test case to check Plus and Minus feature
+        """
         argument_1 = Digit(4)
         argument_2 = Digit(2)
         minus = Minus()

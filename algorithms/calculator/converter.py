@@ -10,12 +10,22 @@ from data_structures.stack import Stack
 
 
 class ReversePolishNotationConverterState:
+    """
+    Class to store the state of RPN convert process
+    """
     def __init__(self, expression_in_infix_notation: str):
+        """
+        :param expression_in_infix_notation: string with expression in infix notation
+        """
         self.expression_in_infix_notation = Queue_(expression_in_infix_notation)
         self.expression_in_postfix_notation = ReversePolishNotation()
         self.stack = Stack()
 
     def pop_from_stack_until_opening_bracket(self):
+        """
+        Help function
+        :return:
+        """
         while not ReversePolishNotationConverter.is_open_bracket(self.stack.top()):
             self.expression_in_postfix_notation.put(self.stack.top())
             self.stack.pop()
@@ -67,6 +77,12 @@ class ReversePolishNotationConverter:
 
     @staticmethod
     def pop_from_stack_until_prioritizing(operator: Op, state: ReversePolishNotationConverterState):
+        """
+        Help function to move elements from stack to state elements (operators)
+        until element on the top of the stack  has less priority then current operator
+        :param operator: Instance of Op class - current operator
+        :param state: State of the RPN convert process
+        """
         while (not state.stack.empty() and
                ReversePolishNotationConverter.is_binary_operation(state.stack.top()) and
                state.stack.top() > operator):
@@ -92,6 +108,11 @@ class ReversePolishNotationConverter:
 
     @staticmethod
     def is_part_of_digit(character: str) -> bool:
+        """
+        Help function to check if symbol is a part of floating point number
+        :param character: current symbol
+        :return: True if character can be part of a digit, else False
+        """
         return character.isdigit() or character == ReversePolishNotationConverter.point
 
     @staticmethod

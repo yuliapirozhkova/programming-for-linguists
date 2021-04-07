@@ -1,7 +1,7 @@
 """
 Programming for linguists
 
-Tests for the ReversePolishNotationConverter class.
+Tests for the Reverse Polish Notation Converter class.
 """
 import unittest
 from typing import Iterable
@@ -12,6 +12,7 @@ from algorithms.calculator.converter import ReversePolishNotationConverter
 from algorithms.calculator.reverse_polish_notation import ReversePolishNotation, Digit
 
 
+@unittest.skip('There is not implementation of ReversePolishNotationConverter yet')
 class ConverterTestCase(unittest.TestCase):
     """
     Class with test cases for ReversePolishNotationConverter

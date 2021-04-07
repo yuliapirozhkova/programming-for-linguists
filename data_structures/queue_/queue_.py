@@ -13,6 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
+    # pylint: disable=unused-argument,missing-module-docstring
     def __init__(self, data: Iterable = (), max_size: int = None):
         self.data = []
         for element in data:
@@ -39,6 +40,7 @@ class Queue_:
         """
         return not self.data
 
+    # pylint: disable=no-self-use
     def full(self) -> bool:
         """
         Return whether queue_ is full or not
@@ -61,6 +63,7 @@ class Queue_:
         """
         return self.data[-1]
 
+    # pylint: disable=no-self-use
     def capacity(self) -> int:
         """
         Return the maximal size of queue_

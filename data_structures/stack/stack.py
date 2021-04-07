@@ -11,7 +11,7 @@ class Stack:
     """
     Stack Data Structure
     """
-
+    # pylint: disable=missing-module-docstring
     def __init__(self, data: Iterable = None):
         self.data = list(data) if data else []
 

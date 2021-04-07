@@ -1,3 +1,8 @@
+"""
+Programming for linguists
+
+Tests for the ReversePolishNotationConverter class.
+"""
 import unittest
 from typing import Iterable
 

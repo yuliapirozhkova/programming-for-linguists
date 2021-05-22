@@ -6,6 +6,8 @@ Implementation of the data structure "Stack"
 
 from typing import Iterable
 
+#size - 10
+#gueue - priorities
 
 class Stack:
     """

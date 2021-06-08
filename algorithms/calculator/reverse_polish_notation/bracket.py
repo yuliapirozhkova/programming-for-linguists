@@ -10,15 +10,18 @@ class Bracket(Op):
     """
     Base interface for brackets
     """
-
+    pass
 
 class OpenBracket(Bracket):
     """
     Interface for open bracket
     """
-
+    symb = '('
+    #priority
 
 class CloseBracket(Bracket):
     """
     Interface for close bracket
     """
+    symb = ')'
+    #priority
